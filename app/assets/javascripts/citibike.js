@@ -31,7 +31,6 @@ App.directionsDisplay3 = new google.maps.DirectionsRenderer({
   polylineOptions : {strokeColor:'yellow', strokeWeight: 5, strokeOpacity: 1},
 });
 
-
 // load stations object into window
 App.updateStationsInfo = function(){
   $.getJSON('/stations', function(data){ 
