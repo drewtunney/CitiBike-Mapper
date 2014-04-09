@@ -16,13 +16,13 @@ App.directionsDisplay1 = new google.maps.DirectionsRenderer({
   preserveViewport: true,
   suppressBicyclingLayer: true,
   suppressMarkers : true,
-  polylineOptions : {strokeColor:'yellow', strokeWeight: 5, strokeOpacity: 0.5},
+  polylineOptions : {strokeColor:'yellow', strokeWeight: 5, strokeOpacity: 1},
 });
 
 App.directionsDisplay2 = new google.maps.DirectionsRenderer({
   preserveViewport: true,
   suppressMarkers : true,
-  polylineOptions : {strokeColor:'blue', strokeWeight: 5, strokeOpacity: 1},
+  polylineOptions : {strokeColor:'blue', strokeWeight: 5, strokeOpacity: 0.5},
 });
 
 App.directionsDisplay3 = new google.maps.DirectionsRenderer({
@@ -49,8 +49,7 @@ App.getCurrentLocation = function(){
       console.log(currentLocation);
       // passing pick up station, current location || not sure where to go from here //
       var station = findPickUpStation(currentLocation["k"], currentLocation["A"]);
-      console.log("station --> " + console.log(station))
-      App.setStation(station, "start")
+      App.setStation(station, "start", currentLocation)
     });
   } else {
     handleNoGeolocation(false);
@@ -89,9 +88,9 @@ App.getStation = function(address, waypoint) {
   } 
 }
 
-App.setStation = function(station, waypoint) {
+App.setStation = function(station, waypoint, currentLocation) {
   App[waypoint + "Station"] = station;
-  App.buildDirections();
+  App.buildDirections(currentLocation);
 
 }
 
@@ -99,7 +98,7 @@ App.setStation = function(station, waypoint) {
 App.buildDirections = function(){
   if (App.startStation && App.endStation) {
     console.log("Got stations, ready to build...");
-
+    console.log("current location in build direction ---> " + currentLocation);
     var startStatLatLng = new google.maps.LatLng(App.startStation.latitude, App.startStation.longitude);
     var endStatLatLng   = new google.maps.LatLng(App.endStation.latitude,   App.endStation.longitude);
 
@@ -107,11 +106,12 @@ App.buildDirections = function(){
     App.bounds.extend(endStatLatLng);
 
     console.log("start point = " + App.startPoint);
+    // console.log("current location in startLeg --> " + currentLocation),
 
     // TODO: for current location, App.StartPoint needs to be (longitude, lattitude), not "Current Location"
 
     var startLeg = {
-      origin: App.startPoint,
+      origin: (currentLocation != undefined ? currentLocation : App.startPoint),
       destination: startStatLatLng,
       travelMode: google.maps.TravelMode.WALKING
     };
