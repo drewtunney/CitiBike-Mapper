@@ -172,7 +172,7 @@ $(function(){
   var new_york = new google.maps.LatLng(40.7284186, -73.98713956);
   var styles = [{"featureType":"road","elementType":"geometry","stylers":[{"lightness":100},{"visibility":"simplified"}]},{"featureType":"water","elementType":"geometry","stylers":[{"visibility":"on"},{"color":"#C6E2FF"}]},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"color":"#C5E3BF"}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"color":"#D1D1B8"}]}];
   var mapOptions = {
-    zoom: 12,
+    zoom: 13,
     center: new_york,
     styles: styles
   };
