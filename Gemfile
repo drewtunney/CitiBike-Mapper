@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'httparty'
 gem 'pry-rails'
 gem 'shoulda-matchers'
+gem 'capybara'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
