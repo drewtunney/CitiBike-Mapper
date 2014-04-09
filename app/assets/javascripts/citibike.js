@@ -156,8 +156,8 @@ App.buildDirections = function(){
 
 App.getDirections = function(){
   // get start and end                  ... defaults -- should remove after testing!
-  App.startPoint = $('#start').val() || "260 Elizabeth St, NYC";
-  App.endPoint   = $('#end').val()   || "The Morgan Library, NYC";
+  App.startPoint = $('#start').val();
+  App.endPoint   = $('#end').val();
 
   // begin the process of choosing a startStation
   App.getStation(App.startPoint, "start");
