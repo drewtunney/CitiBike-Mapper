@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CitiBike</title>
+  
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPOR8U5SUF3CHYJqEmpSm8yO_WjZK4-OU&sensor=true">
+  </script>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  
+
+</head>
+<body>
+
+<%= yield %>
+
+
+</body>
+</html>

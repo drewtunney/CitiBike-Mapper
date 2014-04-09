@@ -1,0 +1,58 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+h1 {
+  font-size: 50px;
+  text-align: center;
+}
+
+html { 
+  height: 100%
+ }
+
+body { 
+  background-color: 'gray';
+  height: 100%; margin: 0; padding: 0
+ }
+
+/*.adp-marker {
+  display: none;
+ }*/
+
+#map-canvas { 
+  border: 1px solid black;
+  height: 90%; 
+  width: 80%;
+  display: inline-block;
+  margin: 0 auto;
+
+ }
+
+ #directions-container {
+  width: 100%;
+
+ }
+
+.directions {
+  vertical-align: text-top;
+  width: 30%;
+  height: 50%;
+  display: inline-block;
+  font-size: 12px;
+}
+
+.adp-warnbox{
+  display: none;
+}
+

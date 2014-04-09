@@ -1,0 +1,1 @@
+GOOGLE_MAPS_KEY = ENV["google_maps_api"]
