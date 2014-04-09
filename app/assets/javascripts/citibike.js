@@ -16,13 +16,13 @@ App.directionsDisplay1 = new google.maps.DirectionsRenderer({
   preserveViewport: true,
   suppressBicyclingLayer: true,
   suppressMarkers : true,
-  polylineOptions : {strokeColor:'blue', strokeWeight: 5, strokeOpacity: 0.5},
+  polylineOptions : {strokeColor:'yellow', strokeWeight: 5, strokeOpacity: 0.5},
 });
 
 App.directionsDisplay2 = new google.maps.DirectionsRenderer({
   preserveViewport: true,
   suppressMarkers : true,
-  polylineOptions : {strokeColor:'yellow', strokeWeight: 5, strokeOpacity: 1},
+  polylineOptions : {strokeColor:'blue', strokeWeight: 5, strokeOpacity: 1},
 });
 
 App.directionsDisplay3 = new google.maps.DirectionsRenderer({
@@ -126,20 +126,22 @@ App.buildDirections = function(){
       travelMode: google.maps.TravelMode.WALKING
     };
     
+    // TODO: Directions Rendering to wrong panel -- First and Second Panels mixed up //
+
     App.directionsService.route(middleLeg, function(result, status) {
       if (status == google.maps.DirectionsStatus.OK) {
         // Middle Leg of Current Location not working 
         // console.log("directionsService result --> " + console.log(result);
         $('#directions-info1').text("Walk From " + App.startPoint + " to the CitiBike Station at " + App.startStation.stationName);
         $('#station-status1').text("There are " + App.startStation.availableBikes + " bikes available");
-        App.directionsDisplay1.setDirections(result);
+        App.directionsDisplay2.setDirections(result);
       }
     });
 
     App.directionsService.route(startLeg, function(result, status) {
       if (status == google.maps.DirectionsStatus.OK) {
         $('#directions-info2').text("Bike From the " + App.startStation.stationName + " Station to the " + App.endStation.stationName + " Station");
-        App.directionsDisplay2.setDirections(result);
+        App.directionsDisplay1.setDirections(result);
         console.log("result from directionsServce start leg --> " + result);
       }
     });
