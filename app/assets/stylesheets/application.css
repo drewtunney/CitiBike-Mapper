@@ -18,7 +18,7 @@ h1 {
 }
 
 h4 {
-  font-color: blue;
+  color: blue;
 }
 
 html { 
@@ -90,8 +90,8 @@ label {
 
 #map-canvas { 
   border: 1px solid black;
-  height: 90%; 
-  width: 80%;
+  height: 50%; 
+  width: 60%;
   display: inline-block;
   margin: 0 auto;
 

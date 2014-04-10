@@ -1,4 +1,4 @@
-### [CitiBike Mapper](http://nycbikemapper.herokuapp.com/) gives you directions to the nearest available CitiBike and will drop you off at the closest available dock to your destination.
+### [CitiBike Mapper](http://nycbikemapper.herokuapp.com/) gives you directions to the nearest available CitiBike and will drop you off your CitiBike at the closest available dock to your destination.
 
 ##### External Data: CitiBike's live [station feed](http://citibikenyc.com/stations/json). This feed is updated every minute by CitiBike. It will also be refreshed in the users browser every minute. 
 

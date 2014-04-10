@@ -2,7 +2,7 @@ function getDistance(lat1,lng1,lat2,lng2) {
   var i = lat1 - lat2;
   var j = lng1 - lng2;
     return i*i + j*j;
-}
+};
 
 function findPickUpStation(lat,lng) {
   var min_distance = 99999;
