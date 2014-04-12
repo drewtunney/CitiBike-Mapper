@@ -561,7 +561,7 @@ select:focus:invalid:focus {
 }
 .help-inline {
   display: inline-block;
-  *display: inline;
+  display: inline;
   /* IE7 inline-block hack */
 
   *zoom: 1;
@@ -769,7 +769,7 @@ input.search-query {
 .form-inline .input-append,
 .form-horizontal .input-append {
   display: inline-block;
-  *display: inline;
+  display: inline;
   /* IE7 inline-block hack */
 
   *zoom: 1;
