@@ -1,17 +1,28 @@
 <h1>CitiBike Trip Mapper</h1>
 
-<form id="get-directions-form">
-  <label>
-    Start: <input class="input-box" type="text" id="start" value="Current Location">
-  </label>
-  <label>
-    Destination: <input class="input-box" type="text" id="end" placeholder="The Morgan Library, NYC">
-  </label>
-  <input id="submit-button" type='submit'></input>
-</form>
 
+  <form class="form-inline" id="get-directions-form">
+    <label>
+      Start: 
+      <input class="input-box" type="text" id="start" value="Current Location">
+    </label>
+    <label>
+      Destination: 
+      <input class="input-box" type="text" id="end" placeholder="The Morgan Library, NYC">
+    </label>
+    <label>
+      Route Type: 
+      <select id = "transit-type">
+               <option value = "BICYCLING">Bike Paths</option>
+               <option value = "DRIVING">Any Street (Driving Directions)</option>
+             </select>
+    </label>
+    <input class="btn btn-primary" id="submit-button" type='submit'></input>
+  </form>
 
-<div id="map-canvas"/></div>
+<div id="map-canvas"/>
+
+</div>
 
 
 

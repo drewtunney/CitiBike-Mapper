@@ -1,13 +1,5 @@
 var currentLocation;
 
-// var autocomplete_options = {
-//       componentRestrictions: {country: 'us'}
-//     };
-
-// var autocomplete_start = new google.maps.places.Autocomplete($("#start"), autocomplete_options);
-
-// var autocomplete_end = new google.maps.places.Autocomplete($("#end"), autocomplete_options);
-
 App.directionsService  = new google.maps.DirectionsService();
 App.bounds = new google.maps.LatLngBounds();
 
@@ -30,6 +22,14 @@ App.directionsDisplay3 = new google.maps.DirectionsRenderer({
   suppressMarkers : true,
   polylineOptions : {strokeColor:'yellow', strokeWeight: 5, strokeOpacity: 1},
 });
+
+// var autocomplete_options = {
+//     componentRestrictions: {country: 'us'}
+//   };
+
+// var autocomplete_start = new google.maps.places.Autocomplete(document.getElementById("start"), autocomplete_options);
+
+// var autocomplete_end = new google.maps.places.Autocomplete(document.getElementById("end"), autocomplete_options);
 
 // load stations object into window
 App.updateStationsInfo = function(){
@@ -72,15 +72,16 @@ App.getStation = function(address, waypoint) {
           if (waypoint === "start") {
             var station = findPickUpStation(latitude, longitude);
             App.setStation(station, waypoint);
-            console.log("in start")
+            // console.log("in start")
           }
           else {
             var station = findDropOffStation(latitude, longitude);
             App.setStation(station, waypoint);
 
-            console.log("in end")
+            // console.log("in end")
           }
-        } else {
+        } 
+        else {
           alert("Geocode was not successful for the following reason: " + status);
         }
     });
@@ -96,29 +97,43 @@ App.setStation = function(station, waypoint, currentLocation) {
 
 App.buildDirections = function(){
   if (App.startStation && App.endStation) {
-    console.log("Got stations, ready to build...");
-    console.log("current location in build direction ---> " + currentLocation);
+    // console.log("Got stations, ready to build...");
+    // console.log("current location in build direction ---> " + currentLocation);
     var startStatLatLng = new google.maps.LatLng(App.startStation.latitude, App.startStation.longitude);
     var endStatLatLng   = new google.maps.LatLng(App.endStation.latitude,   App.endStation.longitude);
 
     App.bounds.extend(startStatLatLng);
     App.bounds.extend(endStatLatLng);
 
-    console.log("start point = " + App.startPoint);
+    // console.log("start point = " + App.startPoint);
     // console.log("current location in startLeg --> " + currentLocation),
 
     // TODO: for current location, App.StartPoint needs to be (longitude, lattitude), not "Current Location"
+    var transitType = $('#transit-type').val()
 
     var startLeg = {
       origin: (currentLocation != undefined ? currentLocation : App.startPoint),
       destination: startStatLatLng,
       travelMode: google.maps.TravelMode.WALKING
     };
-    var middleLeg = {
-      origin: startStatLatLng,
-      destination: endStatLatLng,
-      travelMode: google.maps.TravelMode.BICYCLING
-    };
+
+    // if the user wants to use driving directions instead of bike paths
+
+    if (transitType == "BICYCLING"){
+       var middleLeg = {
+        origin: startStatLatLng,
+        destination: endStatLatLng,
+        travelMode: google.maps.TravelMode.BICYCLING
+        }
+      }
+    else{
+      var middleLeg = {
+        origin: startStatLatLng,
+        destination: endStatLatLng,
+        travelMode: google.maps.TravelMode.DRIVING
+      };
+    }
+
     var endLeg = {
       origin: endStatLatLng,
       destination: App.endPoint,
@@ -141,7 +156,6 @@ App.buildDirections = function(){
       if (status == google.maps.DirectionsStatus.OK) {
         $('#directions-info2').text("Bike From the " + App.startStation.stationName + " Station to the " + App.endStation.stationName + " Station");
         App.directionsDisplay1.setDirections(result);
-        console.log("result from directionsServce start leg --> " + result);
       }
     });
 
@@ -156,7 +170,7 @@ App.buildDirections = function(){
 }
 
 App.getDirections = function(){
-  // get start and end                  ... defaults -- should remove after testing!
+  // get start and end
   App.startPoint = $('#start').val();
   App.endPoint   = $('#end').val();
 
@@ -189,9 +203,7 @@ $(function(){
   // load Stations
   App.updateStationsInfo();
   window.setInterval(App.updateStationsInfo, 60000);
-  // setStationInterval();
 
-  // $('#get-current-location').on('click', App.getCurrentLocation());
   // add event listener to form submission
   $('#get-directions-form').on('submit', function(e){
     $('.adp').remove();
@@ -215,3 +227,4 @@ google.maps.event.addListener(App.directionsDisplay3, 'directions_changed', func
   map.setCenter(App.bounds.getCenter(), map.fitBounds(App.bounds));
   console.log("third event listener")
 });
+

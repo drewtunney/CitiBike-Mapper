@@ -38,3 +38,4 @@ function findDropOffStation(lat,lng) {
 
   return App.stations.stationBeanList[closest_station_id];
 }
+
