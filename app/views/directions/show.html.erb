@@ -2,21 +2,19 @@
 
 
   <form class="form-inline" id="get-directions-form">
-    <label>
-      Start: 
-      <input class="input-box" type="text" id="start" value="Current Location">
-    </label>
-    <label>
-      Destination: 
-      <input class="input-box" type="text" id="end" placeholder="The Morgan Library, NYC">
-    </label>
-    <label>
-      Route Type: 
-      <select id = "transit-type">
+
+    <label> Start </label> 
+      <input class="input-box form-control" type="text" id="start" value="Current Location">
+
+    <label> End </label>
+      <input class="input-box form-control" type="text" id="end" placeholder="The Morgan Library, NYC">
+    
+    <label>Route Type:</label>
+      <select class="form-control" id = "transit-type">
                <option value = "BICYCLING">Bike Paths</option>
                <option value = "DRIVING">Any Street (Driving Directions)</option>
              </select>
-    </label>
+    
     <input class="btn btn-primary" id="submit-button" type='submit'></input>
   </form>
 
@@ -27,15 +25,15 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-4" id="directionsPanel1">
+    <div class="col-xs-12 col-sm-6 col-md-4" id="directionsPanel1">
       <h3 class="directions-discription" id="directions-info1"></h3>
       <h4 class="directions-description" id="station-status1"></h4>
     </div>
-    <div class="col-md-4" id="directionsPanel2">
+    <div class="col-xs-12 col-sm-6 col-md-4" id="directionsPanel2">
       <h3 class="directions-discription" id="directions-info2"></h3>
       <h4 class="directions-description" id="station-status2"><br></h4>
     </div>
-    <div class="col-md-4" id="directionsPanel3">
+    <div class="col-xs-12 col-sm-6 col-md-4" id="directionsPanel3">
       <h3 class="directions-discription" id="directions-info3"></h3>
       <h4 class="directions-description" id="station-status3"></h4>
     </div>
