@@ -182,11 +182,11 @@ App.getDirections = function(){
 $(function(){
   // initialize map
 
-  var new_york = new google.maps.LatLng(40.7284186, -73.98713956);
+  var newYork = new google.maps.LatLng(40.7284186, -73.98713956);
   var styles = [{"featureType":"road","elementType":"geometry","stylers":[{"lightness":100},{"visibility":"simplified"}]},{"featureType":"water","elementType":"geometry","stylers":[{"visibility":"on"},{"color":"#C6E2FF"}]},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"color":"#C5E3BF"}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"color":"#D1D1B8"}]}];
   var mapOptions = {
     zoom: 13,
-    center: new_york,
+    center: newYork,
     styles: styles
   };
 
@@ -202,7 +202,13 @@ $(function(){
   App.updateStationsInfo();
   window.setInterval(App.updateStationsInfo, 60000);
 
+  // autocomplete defined and instantiated
+  var lincolnSquareNYC = new google.maps.LatLng(40.7733, -73.9818);
+  var bedStuyBrooklyn = new google.maps.LatLng(40.6833, -73.9411);
+  var citiBikeStationBounds = new google.maps.LatLngBounds(lincolnSquareNYC, bedStuyBrooklyn);
+
   var autocompleteOptions = {
+    bounds: citiBikeStationBounds,
     componentRestrictions: {country: 'us'}
   };
 
