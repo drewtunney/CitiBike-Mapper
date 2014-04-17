@@ -23,11 +23,9 @@ App.directionsDisplay3 = new google.maps.DirectionsRenderer({
   polylineOptions : {strokeColor:'yellow', strokeWeight: 5, strokeOpacity: 1},
 });
 
-// var autocomplete_options = {
-//     componentRestrictions: {country: 'us'}
-//   };
 
-// var autocomplete_start = new google.maps.places.Autocomplete(document.getElementById("start"), autocomplete_options);
+
+
 
 // var autocomplete_end = new google.maps.places.Autocomplete(document.getElementById("end"), autocomplete_options);
 
@@ -204,6 +202,15 @@ $(function(){
   App.updateStationsInfo();
   window.setInterval(App.updateStationsInfo, 60000);
 
+  var autocompleteOptions = {
+    componentRestrictions: {country: 'us'}
+  };
+
+  var startInput = document.getElementById('start');
+  var autocompleteStart = new google.maps.places.Autocomplete(startInput, autocompleteOptions);
+  var endInput = document.getElementById('end');
+  var autocompleteEnd = new google.maps.places.Autocomplete(endInput, autocompleteOptions);
+  
   // add event listener to form submission
   $('#get-directions-form').on('submit', function(e){
     $('.adp').remove();
