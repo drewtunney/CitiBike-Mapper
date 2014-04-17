@@ -12,8 +12,6 @@
  *= require_self
  */
 
-@import "bootstrap";
-
 h4 {
   color: blue;
 }
@@ -34,6 +32,10 @@ form {
   padding-bottom: 10px;
 }
 
+.current-location-marker {
+  height: 30px;
+
+}
 
 .adp-marker {
   margin-right: 30px;

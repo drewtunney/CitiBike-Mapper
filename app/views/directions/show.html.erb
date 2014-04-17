@@ -1,21 +1,27 @@
-<h1>CitiBike Trip Mapper</h1>
 
 
-  <form class="form-inline" id="get-directions-form">
+  <h1>CitiBike Trip Mapper</h1>
 
-    <label> Start </label> 
-      <input class="input-box form-control" type="text" id="start" value="Current Location">
+    <form class="form-inline" id="get-directions-form">
 
-    <label> End </label>
-      <input class="input-box form-control" type="text" id="end" placeholder="The Morgan Library, NYC">
-    
-      <select class="form-control" id = "transit-type">
-               <option value = "BICYCLING">Bike Paths</option>
-               <option value = "DRIVING">Driving</option>
-             </select>
-    
-    <input class="btn btn-primary" id="submit-button" type='submit'></input>
-  </form>
+        <label class="sr-only">Start</label>
+        <input class="form-control" type="text" id="start" placeholder="Start">
+        <img class="current-location-marker" src="http://imgur.com/pGM46FY.png">
+      
+        <label> End </label>
+        <input class="form-control" type="text" id="end" placeholder="End">
+
+        <label class="sr-only">Route Type:</label>
+        <select class="form-control" id = "transit-type">
+          <option value = "BICYCLING">Bike Paths</option>
+          <option value = "DRIVING">More Direct</option>
+        </select>
+      
+      <input class="btn btn-primary" id="submit-button" type='submit'></input>
+
+    </form>
+
+</div>
 
 <div id="map-canvas"/>
 

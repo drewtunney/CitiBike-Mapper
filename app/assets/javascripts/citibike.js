@@ -224,6 +224,11 @@ $(function(){
     App.getDirections();
   });
 
+  $('.current-location-marker').on('click', function(){
+    console.log("clicked")
+    $('#start').val("Current Location") 
+  })
+
 });
 
 // set bounds on new directions
