@@ -33,8 +33,11 @@ form {
 }
 
 .current-location-marker {
-  height: 30px;
+  height: 20px;
+}
 
+.input-group-addon{
+  background-color: white;
 }
 
 .adp-marker {

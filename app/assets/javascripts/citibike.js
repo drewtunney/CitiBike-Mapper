@@ -224,7 +224,7 @@ $(function(){
     App.getDirections();
   });
 
-  $('.current-location-marker').on('click', function(){
+  $('.input-group-addon').on('click', function(){
     console.log("clicked")
     $('#start').val("Current Location") 
   })

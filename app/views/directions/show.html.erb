@@ -1,25 +1,35 @@
 
 
   <h1>CitiBike Trip Mapper</h1>
+  
+  <!-- does this actually need to be in a form? If not can just do an input add on -->
+  <!-- maybe just the submit button is a form? Just taking the value anyways -->
 
-    <form class="form-inline" id="get-directions-form">
+      <div class="row">
+        <div class="col-md-2 input-group">
+          <input class="form-control" type="text" id="start" placeholder="Start">
+          <span class="input-group-addon"><img class="current-location-marker" src="http://imgur.com/9qk7SfH.png"></span>
+        </div>
 
-        <label class="sr-only">Start</label>
-        <input class="form-control" type="text" id="start" placeholder="Start">
-        <img class="current-location-marker" src="http://imgur.com/pGM46FY.png">
-      
-        <label> End </label>
-        <input class="form-control" type="text" id="end" placeholder="End">
+        <form id="get-directions-form">
+          <div class="col-md-2">
+            <label class="sr-only"> End </label>
+            <input class="form-control" type="text" id="end" placeholder="End">
+          </div>
+          <div class="col-md-2">
+          <label class="sr-only">Route Type:</label>
+          <select class="form-control" id = "transit-type">
+            <option value = "BICYCLING">Bike Paths</option>
+            <option value = "DRIVING">More Direct</option>
+          </select>
+          </div>
+          
+          <div class="col-md-2">
+            <input class="btn btn-primary" id="submit-button" type='submit'></input>
+          </div>
+        </form>
 
-        <label class="sr-only">Route Type:</label>
-        <select class="form-control" id = "transit-type">
-          <option value = "BICYCLING">Bike Paths</option>
-          <option value = "DRIVING">More Direct</option>
-        </select>
-      
-      <input class="btn btn-primary" id="submit-button" type='submit'></input>
-
-    </form>
+      </div>
 
 </div>
 
