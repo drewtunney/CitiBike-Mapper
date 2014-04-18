@@ -5,7 +5,7 @@
   <!-- does this actually need to be in a form? If not can just do an input add on -->
   <!-- maybe just the submit button is a form? Just taking the value anyways -->
 
-      <div class="row">
+<!--       <div class="row">
         <div class="col-md-2 input-group">
           <input class="form-control" type="text" id="start" placeholder="Start">
           <span class="input-group-addon"><img class="current-location-marker" src="http://imgur.com/9qk7SfH.png"></span>
@@ -31,7 +31,25 @@
 
       </div>
 
-</div>
+</div> -->
+
+<form class="form-inline" id="get-directions-form">
+
+  <label class="sr-only">Start</label>
+    <input class="form-control" type="text" id="start" value="Current Location">
+      
+  <label class="sr-only"> End </label>
+    <input class="form-control" type="text" id="end" placeholder="Destination">
+
+  <label class="sr-only">Route Type:</label>
+    <select class="form-control route-drop-down" id = "transit-type">
+      <option value = "BICYCLING">Bike Paths</option>
+      <option value = "DRIVING">More Direct</option>
+    </select>
+      
+  <button class="btn btn-primary" id="submit-button" type='submit'>Get Directions</button>
+
+</form>
 
 <div id="map-canvas"/>
 
@@ -40,15 +58,15 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-8 col-sm-6 col-md-4" id="directionsPanel1">
+    <div class="col-xs-12 col-sm-6 col-md-4" id="directionsPanel1">
       <h3 class="directions-discription" id="directions-info1"></h3>
       <h4 class="directions-description" id="station-status1"></h4>
     </div>
-    <div class="col-xs-8 col-sm-6 col-md-4" id="directionsPanel2">
+    <div class="col-xs-12 col-sm-6 col-md-4" id="directionsPanel2">
       <h3 class="directions-discription" id="directions-info2"></h3>
       <h4 class="directions-description" id="station-status2"><br></h4>
     </div>
-    <div class="col-xs-8 col-sm-6 col-md-4" id="directionsPanel3">
+    <div class="col-xs-12 col-sm-6 col-md-4" id="directionsPanel3">
       <h3 class="directions-discription" id="directions-info3"></h3>
       <h4 class="directions-description" id="station-status3"></h4>
     </div>

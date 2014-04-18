@@ -80,7 +80,7 @@ App.getStation = function(address, waypoint) {
           }
         } 
         else {
-          alert("Geocode was not successful for the following reason: " + status);
+          alert("Enter a destination!");
         }
     });
   } 

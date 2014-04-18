@@ -36,6 +36,18 @@ form {
   height: 20px;
 }
 
+#start {
+  width: 300px;
+}
+
+#end{
+  width: 300px;
+}
+
+.route-drop-down {
+  width: 100px;
+}
+
 .input-group-addon{
   background-color: white;
 }
