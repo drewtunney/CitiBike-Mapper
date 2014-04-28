@@ -144,23 +144,23 @@ App.buildDirections = function(){
       if (status == google.maps.DirectionsStatus.OK) {
         // Middle Leg of Current Location not working 
         // console.log("directionsService result --> " + console.log(result);
-        $('#directions-info1').text("Walk From " + App.startPoint + " to the CitiBike Station at " + App.startStation.stationName);
-        $('#station-status1').text("There are " + App.startStation.availableBikes + " bikes available");
+        $('#directions-info1').text("Walk to the " + App.startStation.stationName + " station");
+        $('#station-status1').text(App.startStation.availableBikes + " available bikes");
         App.directionsDisplay2.setDirections(result);
       }
     });
 
     App.directionsService.route(startLeg, function(result, status) {
       if (status == google.maps.DirectionsStatus.OK) {
-        $('#directions-info2').text("Bike From the " + App.startStation.stationName + " Station to the " + App.endStation.stationName + " Station");
+        $('#directions-info2').text("Bike to the " + App.endStation.stationName + " station");
         App.directionsDisplay1.setDirections(result);
       }
     });
 
     App.directionsService.route(endLeg, function(result, status) {
       if (status == google.maps.DirectionsStatus.OK) {
-        $('#directions-info3').text("Walk From " + App.endStation.stationName + " Station to " + App.endPoint);
-        $('#station-status3').text("There are " + App.endStation.availableDocks + " docks available");
+        $('#directions-info3').text("Walk to" + App.endPoint);
+        $('#station-status3').text(App.endStation.availableDocks + " available docks");
         App.directionsDisplay3.setDirections(result);
       }
     });
