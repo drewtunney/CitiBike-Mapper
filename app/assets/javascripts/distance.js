@@ -9,17 +9,12 @@ function findPickUpStation(lat,lng) {
   var closest_station_id;
   $.each(App.stations.stationBeanList, function(i, station) {
     var distance = getDistance(lat,lng, station.latitude, station.longitude);
-    // set bike count to be greater than 0, should probably set to 1 or 2
-    // or have an alert that there is only one bike, and you may want to consider 
-    // another station
+    // set bike count to be greater than 2, can change / maybe user chooses
     if (distance < min_distance && station.availableBikes > 2 && station.statusValue == "In Service") {
       min_distance = distance;
       closest_station_id = i;
     }
   });
-
-  console.log('Closest station idx: ' + closest_station_id);
-
   return App.stations.stationBeanList[closest_station_id];
 }
 
@@ -33,9 +28,6 @@ function findDropOffStation(lat,lng) {
       closest_station_id = i;
     }
   });
-
-  console.log('Closest station idx: ' + closest_station_id);
-
   return App.stations.stationBeanList[closest_station_id];
 }
 

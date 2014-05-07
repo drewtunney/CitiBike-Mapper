@@ -23,12 +23,6 @@ App.directionsDisplay3 = new google.maps.DirectionsRenderer({
   polylineOptions : {strokeColor:'yellow', strokeWeight: 5, strokeOpacity: 1},
 });
 
-
-
-
-
-// var autocomplete_end = new google.maps.places.Autocomplete(document.getElementById("end"), autocomplete_options);
-
 // load stations object into window
 App.updateStationsInfo = function(){
   $.getJSON('/stations', function(data){ 
@@ -36,6 +30,36 @@ App.updateStationsInfo = function(){
     console.log(App.stations);
   });
 };
+
+App.getStation = function(address, waypoint) {
+  var geocoder = new google.maps.Geocoder();
+
+  if (address === "Current Location"){
+    App.getCurrentLocation();
+
+  } else {
+    geocoder.geocode({
+        'address': address
+    }, function (results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          var latitude  = results[0].geometry.location.lat();
+          var longitude = results[0].geometry.location.lng();
+
+          if (waypoint === "start") {
+            var station = findPickUpStation(latitude, longitude);
+            App.setStation(station, waypoint);
+          }
+          else {
+            var station = findDropOffStation(latitude, longitude);
+            App.setStation(station, waypoint);
+          }
+        } 
+        else {
+          alert("Enter a destination!");
+        }
+    });
+  } 
+}
 
 App.getCurrentLocation = function(){
   if(navigator.geolocation) {
@@ -53,58 +77,20 @@ App.getCurrentLocation = function(){
   }
 };
 
-App.getStation = function(address, waypoint) {
-  var geocoder = new google.maps.Geocoder();
-
-  if (address === "Current Location"){
-    App.getCurrentLocation();
-
-  } else {
-    geocoder.geocode({
-        'address': address
-    }, function (results, status) {
-        if (status == google.maps.GeocoderStatus.OK) {
-          var latitude  = results[0].geometry.location.lat();
-          var longitude = results[0].geometry.location.lng();
-          
-          if (waypoint === "start") {
-            var station = findPickUpStation(latitude, longitude);
-            App.setStation(station, waypoint);
-            // console.log("in start")
-          }
-          else {
-            var station = findDropOffStation(latitude, longitude);
-            App.setStation(station, waypoint);
-
-            // console.log("in end")
-          }
-        } 
-        else {
-          alert("Enter a destination!");
-        }
-    });
-  } 
-}
-
 App.setStation = function(station, waypoint, currentLocation) {
   App[waypoint + "Station"] = station;
   App.buildDirections(currentLocation);
 
 }
 
-
 App.buildDirections = function(){
   if (App.startStation && App.endStation) {
-    // console.log("Got stations, ready to build...");
     // console.log("current location in build direction ---> " + currentLocation);
     var startStatLatLng = new google.maps.LatLng(App.startStation.latitude, App.startStation.longitude);
     var endStatLatLng   = new google.maps.LatLng(App.endStation.latitude,   App.endStation.longitude);
 
     App.bounds.extend(startStatLatLng);
     App.bounds.extend(endStatLatLng);
-
-    // console.log("start point = " + App.startPoint);
-    // console.log("current location in startLeg --> " + currentLocation),
 
     // TODO: for current location, App.StartPoint needs to be (longitude, lattitude), not "Current Location"
     var transitType = $('#transit-type').val()
@@ -137,13 +123,9 @@ App.buildDirections = function(){
       destination: App.endPoint,
       travelMode: google.maps.TravelMode.WALKING
     };
-    
-    // TODO: Directions Rendering to wrong panel -- First and Second Panels mixed up //
 
     App.directionsService.route(middleLeg, function(result, status) {
       if (status == google.maps.DirectionsStatus.OK) {
-        // Middle Leg of Current Location not working 
-        // console.log("directionsService result --> " + console.log(result);
         $('#directions-info1').text("Walk to the " + App.startStation.stationName + " station");
         $('#station-status1').text(App.startStation.availableBikes + " available bikes");
         App.directionsDisplay2.setDirections(result);
