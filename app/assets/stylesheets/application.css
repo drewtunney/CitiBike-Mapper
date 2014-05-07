@@ -62,11 +62,15 @@ footer {
 
 .input-group {
   padding-bottom: 15px;
+  font-family: 'Roboto', sans-serif;
 }
 
 .btn-primary {
   height: 55px;
   width: 200px;
+  font-size: 1.5em;
+  font-weight: 500;
+  font-family: 'Roboto', sans-serif;
 }
 
 .current-location {
