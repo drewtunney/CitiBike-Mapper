@@ -22,6 +22,11 @@ h3 {
   text-align: left;
 }
 
+h1 {
+  font-family: 'Playball', cursive;
+  color: white;
+}
+
 h4 {
   color: blue;
   font-weight: 900;

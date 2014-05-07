@@ -141,7 +141,7 @@ App.buildDirections = function(){
 
     App.directionsService.route(endLeg, function(result, status) {
       if (status == google.maps.DirectionsStatus.OK) {
-        $('#directions-info3').text("Walk to" + App.endPoint);
+        $('#directions-info3').text("Walk to " + App.endPoint);
         $('#station-status3').text(App.endStation.availableDocks + " available docks");
         App.directionsDisplay3.setDirections(result);
       }
