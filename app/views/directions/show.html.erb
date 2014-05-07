@@ -1,53 +1,36 @@
+<div class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <h3>The Unofficial CitiBike Trip Mapper</h3>
+    </div>
+  </div>
+</div>
 
 
-  <h3>Live CitiBike Trip Mapper</h1>
+<form class="form-group" id="get-directions-form">
   
-  <!-- does this actually need to be in a form? If not can just do an input add on -->
-  <!-- maybe just the submit button is a form? Just taking the value anyways -->
-
-<!--       <div class="row">
-        <div class="col-md-2 input-group">
-          <input class="form-control" type="text" id="start" placeholder="Start">
-          <span class="input-group-addon"><img class="current-location-marker" src="http://imgur.com/9qk7SfH.png"></span>
-        </div>
-
-        <form id="get-directions-form">
-          <div class="col-md-2">
-            <label class="sr-only"> End </label>
-            <input class="form-control" type="text" id="end" placeholder="End">
-          </div>
-          <div class="col-md-2">
-          <label class="sr-only">Route Type:</label>
-          <select class="form-control" id = "transit-type">
-            <option value = "BICYCLING">Bike Paths</option>
-            <option value = "DRIVING">More Direct</option>
-          </select>
-          </div>
-          
-          <div class="col-md-2">
-            <input class="btn btn-primary" id="submit-button" type='submit'></input>
-          </div>
-        </form>
-
-      </div>
-
-</div> -->
-
-<form class="form-inline" id="get-directions-form">
-
+  <div class="col-md-6 col-md-offset-3 input-group">
   <label class="sr-only">Start</label>
-    <input class="form-control" type="text" id="start" value="Current Location">
-      
-  <label class="sr-only"> End </label>
-    <input class="form-control" type="text" id="end" placeholder="Destination">
+    <input class="form-control input" type="text" id="start" placeholder="Start">
+    <span class="input-group-addon"><img class="current-location" src="http://i.imgur.com/pGM46FY.png"></span>
+  </div>
+  
+  <div class="col-md-6 col-md-offset-3 input-group">   
+    <label class="sr-only"> End </label>
+      <input class="form-control input" type="text" id="end" placeholder="End">
+  </div>
 
-  <label class="sr-only">Route Type:</label>
-    <select class="form-control route-drop-down" id = "transit-type">
-      <option value = "BICYCLING">Bike Paths</option>
-      <option value = "DRIVING">More Direct</option>
-    </select>
-      
-  <button class="btn btn-primary" id="submit-button" type='submit'>Get Directions</button>
+  <div class="col-md-6 col-md-offset-3">
+    <label class="sr-only input">Route Type:</label>
+      <select class="form-control route-drop-down" id = "transit-type">
+        <option value = "BICYCLING">Bike Paths</option>
+        <option value = "DRIVING">More Direct</option>
+      </select>
+  </div>
+  
+  <div class="col-md-6 col-md-offset-3">
+    <button class="btn btn-primary form-control" id="submit-button" type='submit'>Get Directions</button>
+  </div>
 
 </form>
 

@@ -12,8 +12,13 @@
  *= require_self
  */
 
-h4 {
-  color: blue;
+.navbar {
+  background-color: #078bc7;
+  padding-bottom: 1em;
+}
+
+h3 {
+  font-weight: 900;
 }
 
 html { 
@@ -36,16 +41,27 @@ form {
   height: 20px;
 }
 
-#start {
-  width: 300px;
+.input {
+  text-align: center;
+  padding: 25px;
+  font-size: 1.5em;
+  font-weight: 900;
 }
 
-#end{
-  width: 300px;
+.input-group {
+  padding-bottom: 15px;
 }
+
+.current-location {
+  height: 30px;
+}
+/*
+#end{
+  float: left;
+}*/
 
 .route-drop-down {
-  width: 100px;
+  width: 200px;
 }
 
 .input-group-addon{
