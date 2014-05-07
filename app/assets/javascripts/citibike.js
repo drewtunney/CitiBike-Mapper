@@ -126,7 +126,7 @@ App.buildDirections = function(){
 
     App.directionsService.route(middleLeg, function(result, status) {
       if (status == google.maps.DirectionsStatus.OK) {
-        $('#directions-info1').text("Walk to the " + App.startStation.stationName + " station");
+        $('#directions-info1').text("Walk to " + App.startStation.stationName);
         $('#station-status1').text(App.startStation.availableBikes + " available bikes");
         App.directionsDisplay2.setDirections(result);
       }
@@ -134,7 +134,7 @@ App.buildDirections = function(){
 
     App.directionsService.route(startLeg, function(result, status) {
       if (status == google.maps.DirectionsStatus.OK) {
-        $('#directions-info2').text("Bike to the " + App.endStation.stationName + " station");
+        $('#directions-info2').text("Bike to " + App.endStation.stationName);
         App.directionsDisplay1.setDirections(result);
       }
     });
@@ -204,6 +204,12 @@ $(function(){
     $('.adp').remove();
     e.preventDefault();
     App.getDirections();
+
+    $('html, body').animate({
+        scrollTop: $("#map-canvas").offset().top
+      }, 500);
+
+    // $('#map-container').css({'display':'inline'});
   });
 
   $('.input-group-addon').on('click', function(){

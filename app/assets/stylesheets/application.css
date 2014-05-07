@@ -19,6 +19,13 @@
 
 h3 {
   font-weight: 900;
+  text-align: left;
+}
+
+h4 {
+  color: blue;
+  font-weight: 900;
+  text-align: left;
 }
 
 html { 
@@ -26,10 +33,12 @@ html {
  }
 
 body { 
-  height: 100%; 
+  text-align: center;
+  height: 100%;
+  font-weight: 900; 
   margin: 0; 
   padding: 0;
-  text-align: center;
+  background-color: #f5f5f5;
  }
 
 form {
@@ -37,12 +46,15 @@ form {
   padding-bottom: 10px;
 }
 
+footer {
+  height: 300px;
+}
+
 .current-location-marker {
   height: 20px;
 }
 
 .input {
-  text-align: center;
   padding: 25px;
   font-size: 1.5em;
   font-weight: 900;
@@ -50,6 +62,11 @@ form {
 
 .input-group {
   padding-bottom: 15px;
+}
+
+.btn-primary {
+  height: 55px;
+  width: 200px;
 }
 
 .current-location {
@@ -72,10 +89,14 @@ form {
   margin-right: 30px;
  }
 
+#row {
+  text-align: left;
+}
+
 #map-canvas { 
   border: 1px solid black;
   height: 50%; 
-  width: 60%;
+  width: 50%;
   display: inline-block;
   margin: 0 auto;
 
@@ -93,6 +114,27 @@ form {
   height: 50%;
   display: inline-block;
   font-size: 14px;
+}
+
+.adp-summary {
+  color: red;
+}
+
+.adp {
+  text-align: left;
+}
+
+/*hide warning box*/
+.adp-warnbox {
+  display: none;
+}
+
+.adp-placemark {
+  display: none;
+}
+
+.adp-legal {
+  display: none;
 }
 
 .gm-style img { max-width: none; }

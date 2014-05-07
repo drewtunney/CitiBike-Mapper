@@ -11,16 +11,16 @@
   
   <div class="col-md-6 col-md-offset-3 input-group">
   <label class="sr-only">Start</label>
-    <input class="form-control input" type="text" id="start" placeholder="Start">
+    <input class="form-control input" type="text" id="start" placeholder="Starting Point">
     <span class="input-group-addon"><img class="current-location" src="http://i.imgur.com/pGM46FY.png"></span>
   </div>
   
-  <div class="col-md-6 col-md-offset-3 input-group">   
+  <div class="col-sm-12 col-xs-12 col-md-6 col-md-offset-3 input-group">   
     <label class="sr-only"> End </label>
-      <input class="form-control input" type="text" id="end" placeholder="End">
+      <input class="form-control input" type="text" id="end" placeholder="Destination">
   </div>
 
-  <div class="col-md-6 col-md-offset-3">
+  <div style="display:none" class="col-md-6 col-md-offset-3">
     <label class="sr-only input">Route Type:</label>
       <select class="form-control route-drop-down" id = "transit-type">
         <option value = "BICYCLING">Bike Paths</option>
@@ -28,16 +28,16 @@
       </select>
   </div>
   
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-md-4 col-md-offset-4">
     <button class="btn btn-primary form-control" id="submit-button" type='submit'>Get Directions</button>
   </div>
 
 </form>
 
-<div id="map-canvas"/>
-
+<div class="row">
+  <div style="height:50px"></div>
 </div>
-
+<div id="map-canvas"/></div>
 
 <div class="container">
   <div class="row">
@@ -55,3 +55,5 @@
     </div>
   </div>
 </div>
+
+<footer></footer>
