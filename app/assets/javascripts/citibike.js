@@ -185,19 +185,23 @@ $(function(){
   window.setInterval(App.updateStationsInfo, 60000);
 
   // autocomplete defined and instantiated
-  var lincolnSquareNYC = new google.maps.LatLng(40.7733, -73.9818);
-  var bedStuyBrooklyn = new google.maps.LatLng(40.6833, -73.9411);
-  var citiBikeStationBounds = new google.maps.LatLngBounds(lincolnSquareNYC, bedStuyBrooklyn);
+
+  var autocompleteBounds = new google.maps.LatLngBounds(
+    new google.maps.LatLng(40.7733, -73.9818),
+    new google.maps.LatLng(40.6833, -73.9411));
 
   var autocompleteOptions = {
-    bounds: citiBikeStationBounds,
-    componentRestrictions: {country: 'us'}
+    bounds: autocompleteBounds
   };
 
   var startInput = document.getElementById('start');
   var autocompleteStart = new google.maps.places.Autocomplete(startInput, autocompleteOptions);
   var endInput = document.getElementById('end');
   var autocompleteEnd = new google.maps.places.Autocomplete(endInput, autocompleteOptions);
+
+  autocompleteStart.bindTo('bounds', map);
+  autocompleteEnd.bindTo('bounds', map);
+  
   
   // add event listener to form submission
   $('#get-directions-form').on('submit', function(e){
