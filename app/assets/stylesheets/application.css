@@ -13,7 +13,7 @@
  */
 
 .navbar {
-  background-color: #078bc7;
+  background-color: #076bc7;
   padding-bottom: 1em;
 }
 
@@ -53,7 +53,9 @@ form {
 }
 
 footer {
-  height: 300px;
+  height: 250px;
+  background-color: #07c763;
+  padding-top: 7em;
 }
 
 .current-location-marker {
@@ -82,10 +84,6 @@ footer {
 .current-location {
   height: 30px;
 }
-/*
-#end{
-  float: left;
-}*/
 
 .route-drop-down {
   width: 200px;
@@ -112,9 +110,10 @@ footer {
 
  }
 
- #directions-container {
-  width: 100%;
-
+.directions-container {
+  background-color: #07c763;
+  /*display: none;*/
+  margin-top: 5em;
  }
 
 .directions {
@@ -149,3 +148,11 @@ footer {
 
 .gm-style img { max-width: none; }
 .gm-style label { width: auto; display: inline; 
+
+/*@media (min-width: 768px) {
+
+body {
+  background-color: red;
+}
+
+}*/

@@ -209,7 +209,7 @@ $(function(){
         scrollTop: $("#map-canvas").offset().top
       }, 500);
 
-    // $('#map-container').css({'display':'inline'});
+    // $('.directions-container').css({'display':'block'});
   });
 
   $('.input-group-addon').on('click', function(){
