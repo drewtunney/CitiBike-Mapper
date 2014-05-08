@@ -6,14 +6,14 @@ App.bounds = new google.maps.LatLngBounds();
 
 App.directionsDisplay1 = new google.maps.DirectionsRenderer({
   preserveViewport: true,
-  suppressBicyclingLayer: true,
   suppressMarkers : true,
   polylineOptions : {strokeColor:'yellow', strokeWeight: 5, strokeOpacity: 1},
 });
 
 App.directionsDisplay2 = new google.maps.DirectionsRenderer({
   preserveViewport: true,
-  suppressMarkers : true,
+  suppressMarkers : false,
+  suppressBicyclingLayer: true,
   polylineOptions : {strokeColor:'blue', strokeWeight: 5, strokeOpacity: 0.5},
 });
 
@@ -185,7 +185,6 @@ $(function(){
   window.setInterval(App.updateStationsInfo, 60000);
 
   // autocomplete defined and instantiated
-
   var autocompleteBounds = new google.maps.LatLngBounds(
     new google.maps.LatLng(40.7733, -73.9818),
     new google.maps.LatLng(40.6833, -73.9411));
@@ -227,6 +226,7 @@ $(function(){
 
 google.maps.event.addListener(App.directionsDisplay1, 'directions_changed', function() {
   map.setCenter(App.bounds.getCenter(), map.fitBounds(App.bounds));
+  console.log("first even listener")
 });
 google.maps.event.addListener(App.directionsDisplay2, 'directions_changed', function() {
   map.setCenter(App.bounds.getCenter(), map.fitBounds(App.bounds));
