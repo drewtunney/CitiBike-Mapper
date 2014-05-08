@@ -54,7 +54,7 @@ form {
 
 footer {
   height: 250px;
-  background-color: #07c763;
+  background-color: #ccccaa;
   padding-top: 7em;
 }
 
@@ -111,7 +111,7 @@ footer {
  }
 
 .directions-container {
-  background-color: #07c763;
+  background-color: #ccccaa;
   /*display: none;*/
   margin-top: 5em;
  }
