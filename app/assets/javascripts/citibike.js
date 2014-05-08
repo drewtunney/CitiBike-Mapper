@@ -226,15 +226,13 @@ $(function(){
 
 google.maps.event.addListener(App.directionsDisplay1, 'directions_changed', function() {
   map.setCenter(App.bounds.getCenter(), map.fitBounds(App.bounds));
-  console.log("first even listener")
 });
+
 google.maps.event.addListener(App.directionsDisplay2, 'directions_changed', function() {
   map.setCenter(App.bounds.getCenter(), map.fitBounds(App.bounds));
-  console.log("second event listener")
 });
 
 google.maps.event.addListener(App.directionsDisplay3, 'directions_changed', function() {
   map.setCenter(App.bounds.getCenter(), map.fitBounds(App.bounds));
-  console.log("third event listener")
 });
 
