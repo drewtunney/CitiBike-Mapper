@@ -58,9 +58,6 @@ footer {
   padding-top: 7em;
 }
 
-.current-location-marker {
-  height: 20px;
-}
 
 .input {
   padding: 25px;
@@ -112,7 +109,6 @@ footer {
 
 .directions-container {
   background-color: #ccccaa;
-  /*display: none;*/
   margin-top: 5em;
  }
 
@@ -125,6 +121,8 @@ footer {
   font-size: 14px;
 }
 
+/* directions results clean up */
+
 .adp-summary {
   color: red;
 }
@@ -133,7 +131,6 @@ footer {
   text-align: left;
 }
 
-/*hide warning box*/
 .adp-warnbox {
   display: none;
 }
@@ -146,8 +143,6 @@ footer {
   display: none;
 }
 
-.gm-style img { max-width: none; }
-.gm-style label { width: auto; display: inline; }
 
 @media only screen and (max-width: 480px) {
 
