@@ -29,8 +29,11 @@ App.getStation = function(address, waypoint) {
             App.setStation(station, waypoint);
           }
         } 
+        else if ($('#start').val() == '') {
+          alert("Enter a starting point!");
+        }
         else {
-          alert("Enter a destination!");
+          alert("Enter a destination");
         }
     });
   } 
